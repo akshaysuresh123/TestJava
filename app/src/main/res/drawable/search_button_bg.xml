@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Border color and width -->
+            <!-- Red border -->
+
+            <!-- Background color inside the border -->
+            <solid android:color="#FBB03B" /> <!-- White background -->
+
+            <!-- Optional: Corner radius for rounded corners -->
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</selector>

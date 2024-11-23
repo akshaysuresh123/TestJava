@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.Fragments.FarmerRegistrationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+        android:weightSum="3"
+
+><LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:text="Farmer Registration" />
+        <View
+            android:layout_width="60dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="6dp"
+            android:background="@color/colorPrimary" />
+
+    </LinearLayout>
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="0dp"/>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="0.8"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/search_button_bg"
+        android:text="Save"
+        />
+
+    </LinearLayout>
+
+
+    <!-- Outer container to hold the entire form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="110dp"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="20dp"
+        android:paddingTop="22dp">
+
+        <!-- First row: National ID, Farm ID, Farmer Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- National ID -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="National ID" />
+                <EditText
+                    android:id="@+id/nationalid"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                     />
+            </LinearLayout>
+
+            <!-- Farm ID -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Farm ID" />
+                <EditText
+                    android:id="@+id/farmid"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+            <!-- Farmer Name -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Farmer Name" />
+                <EditText
+                    android:id="@+id/farmername"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                     />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Second row: Coop Name, Coop ID, DOB -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- Coop Name -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Coop Name" />
+                <EditText
+                    android:id="@+id/coopname"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                     />
+            </LinearLayout>
+
+            <!-- Coop ID -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Coop ID" />
+                <EditText
+                    android:id="@+id/coopid"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                     />
+            </LinearLayout>
+
+            <!-- Date of Birth -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth" />
+                <EditText
+                    android:id="@+id/dateEditText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:drawableEnd="@drawable/calender"
+                    android:drawablePadding="8dp"
+                    android:padding="12dp"
+                    android:inputType="none"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Third row: Gender, Upload Farmer Photo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- Gender -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="97dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="Gender"
+                    android:textStyle="bold" />
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/gender"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:dropDownHeight="wrap_content"
+                    android:dropDownWidth="match_parent" />
+
+            </LinearLayout>
+
+            <!-- Upload Farmer Photo -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:padding="4dp"
+                android:background="@drawable/button_bg_white_emoty"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Photo" />
+                <ImageView
+                    android:id="@+id/selectedImageView"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/defaultpic"
+                    android:background="#CCCCCC" />
+                <Button
+                    android:id="@+id/galleryButton"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/button_bg_white_emoty"
+                    android:text="Gallery" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    android:text="Farmer Photo"/>
+            </LinearLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"/>
+
+
+        </LinearLayout>
+
+        <!-- Save Button -->
+
+    </LinearLayout>
+    </ScrollView>
+
+
+
+
+</FrameLayout>

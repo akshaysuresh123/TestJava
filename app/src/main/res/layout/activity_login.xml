@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:padding="6dp">
+
+    <!-- Centered Image -->
+
+    <!-- PIN Input -->
+
+
+    <!-- Login Button -->
+
+    <ImageView
+        android:id="@+id/centerImage"
+        android:layout_width="322dp"
+        android:layout_height="269dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="129dp"
+        android:contentDescription=""
+        android:src="@drawable/farner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="33dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/pinInput1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_bg"
+            android:gravity="center"
+            android:inputType="numberPassword"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/pinInput2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_bg"
+            android:gravity="center"
+            android:inputType="numberPassword"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/pinInput3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_bg"
+            android:gravity="center"
+            android:inputType="numberPassword"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/pinInput4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_bg"
+            android:gravity="center"
+            android:inputType="numberPassword"
+            android:maxLength="1" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="124dp"
+        android:background="@drawable/button_background"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:theme="@style/AppTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButtonback"
+        android:layout_width="34dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="343dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/vectorback" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="339dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="655dp"
+        android:textSize="18dp"
+        android:text="Log In"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

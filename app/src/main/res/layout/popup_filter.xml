@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/toolbar_bg"
+    android:padding="16dp">
+
+    <!-- Heading TextView -->
+    <TextView
+        android:id="@+id/filter_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Gender Filter (Male and Female) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <CheckBox
+            android:id="@+id/checkbox_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+
+        <CheckBox
+            android:id="@+id/checkbox_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </LinearLayout>
+
+    <!-- Apply Button -->
+    <Button
+        android:id="@+id/apply_button"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/button_background"
+        android:text="Apply"
+        android:layout_gravity="center" />
+</LinearLayout>
