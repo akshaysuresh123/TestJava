@@ -39,7 +39,6 @@ public class FarmerRegistrationFragment extends Fragment {
     private FragmentFarmerRegistrationBinding binding;
     private ActivityResultLauncher<String> selectImageLauncher;
 
-
     public static FarmerRegistrationFragment newInstance() {
         return new FarmerRegistrationFragment();
     }
@@ -57,7 +56,6 @@ public class FarmerRegistrationFragment extends Fragment {
                     }
                 }
         );
-
     }
 
     @Override
@@ -66,18 +64,17 @@ public class FarmerRegistrationFragment extends Fragment {
         // Inflate the layout using ViewBinding
         binding = FragmentFarmerRegistrationBinding.inflate(inflater, container, false);
 
-        dashboardViewmodel=new ViewModelProvider(requireActivity()).get(DashboardViewmodel.class);
+        dashboardViewmodel = new ViewModelProvider(requireActivity()).get(DashboardViewmodel.class);
+        mViewModel = new ViewModelProvider(this).get(FarmerRegistrationViewModel.class);
 
-        mViewModel=new ViewModelProvider(this).get(FarmerRegistrationViewModel.class);
         mViewModel.getInsertion_status().observe(getViewLifecycleOwner(), success -> {
             if (success.equals("success")) {
                 Toast.makeText(getContext(), "Data saved successfully!", Toast.LENGTH_SHORT).show();
                 dashboardViewmodel.set_add_register_press("Farmer register");
             } else {
-
+                // Handle failure case here if necessary
             }
         });
-
 
         // Disable the back press
         requireActivity().getOnBackPressedDispatcher().addCallback(
@@ -90,21 +87,15 @@ public class FarmerRegistrationFragment extends Fragment {
                 }
         );
 
-
+        setUI(); // Initialize UI components
         return binding.getRoot();
-
-
     }
 
     private void setUI() {
-
         Calendar calendar = Calendar.getInstance();
 
         // Open DatePicker when clicking the EditText or the calendar icon
         binding.dateEditText.setOnClickListener(v -> showDatePicker(calendar, binding.dateEditText));
-
-
-
 
         // Set button click listener
         binding.galleryButton.setOnClickListener(v -> {
@@ -112,14 +103,8 @@ public class FarmerRegistrationFragment extends Fragment {
             selectImageLauncher.launch("image/*");
         });
 
-
         // Set Save button click listener
-        binding.saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveFarmerData();
-            }
-        });
+        binding.saveButton.setOnClickListener(v -> saveFarmerData());
 
         AutoCompleteTextView genderDropdown = binding.gender;
 
@@ -127,11 +112,8 @@ public class FarmerRegistrationFragment extends Fragment {
         String[] genders = {"Male", "Female"};
 
         // Create an ArrayAdapter with the gender list
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                requireContext(),
-                android.R.layout.simple_dropdown_item_1line,
-                genders
-        );
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(),
+                android.R.layout.simple_dropdown_item_1line, genders);
 
         // Set the adapter to the AutoCompleteTextView
         genderDropdown.setAdapter(adapter);
@@ -141,10 +123,7 @@ public class FarmerRegistrationFragment extends Fragment {
             String selectedGender = (String) parent.getItemAtPosition(position);
             // Do something with the selected gender
         });
-
     }
-
-
 
     private void saveFarmerData() {
         // Retrieve data from input fields
@@ -154,7 +133,7 @@ public class FarmerRegistrationFragment extends Fragment {
         String coopName = binding.coopname.getText().toString().trim();
         String coopId = binding.coopid.getText().toString().trim();
         String dob = binding.dateEditText.getText().toString().trim();
-        String gender=binding.gender.getText().toString().trim();
+        String gender = binding.gender.getText().toString().trim();
 
         // Validate fields
         if (nationalId.isEmpty() || farmId.isEmpty() || farmerName.isEmpty() ||
@@ -163,33 +142,49 @@ public class FarmerRegistrationFragment extends Fragment {
             return;
         }
 
-        // Convert image to blob
+        // Convert image to blob with reduced quality
         byte[] imageBlob = convertImageViewToBlob(binding.selectedImageView);
-        Farmer farmer=new Farmer(nationalId,farmId,farmerName,coopName,coopId,dob,gender,imageBlob);
 
+        // Create a new Farmer object and insert data
+        Farmer farmer = new Farmer(nationalId, farmId, farmerName, coopName, coopId, dob, gender, imageBlob);
         mViewModel.insertFarmer(farmer);
     }
-    // Convert ImageView to Blob
+
+    // Convert ImageView to Blob with reduced quality
     private byte[] convertImageViewToBlob(ImageView imageView) {
         BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
         if (drawable == null) return null;
 
         Bitmap bitmap = drawable.getBitmap();
+
+        // Resize image if it's too large (optional step to further reduce the size)
+        Bitmap resizedBitmap = resizeBitmap(bitmap, 800, 600); // Resize to 800x600, you can adjust this
+
+        // Compress bitmap with reduced quality (e.g., 80% quality)
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream); // Convert to PNG
+        resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream); // Compress to JPEG with 80% quality
         return stream.toByteArray();
     }
 
+    // Method to resize the bitmap (optional)
+    private Bitmap resizeBitmap(Bitmap originalBitmap, int maxWidth, int maxHeight) {
+        int width = originalBitmap.getWidth();
+        int height = originalBitmap.getHeight();
 
+        // Calculate the scaling ratio to fit the maxWidth and maxHeight
+        float ratio = Math.min((float) maxWidth / width, (float) maxHeight / height);
+        int newWidth = Math.round(ratio * width);
+        int newHeight = Math.round(ratio * height);
+
+        // Create a resized bitmap
+        return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(FarmerRegistrationViewModel.class);
         setUI();
-        // TODO: Use the ViewModel
     }
-
 
     private void showDatePicker(Calendar calendar, EditText dateEditText) {
         DatePickerDialog datePicker = new DatePickerDialog(
@@ -204,5 +199,4 @@ public class FarmerRegistrationFragment extends Fragment {
         );
         datePicker.show();
     }
-
 }
