@@ -63,7 +63,10 @@ public class FarmerAdapter extends RecyclerView.Adapter<FarmerAdapter.FarmerView
 
     @Override
     public void onBindViewHolder(@NonNull FarmerViewHolder holder, int position) {
+
         Farmer farmer = farmerList.get(position);
+        if(farmer!=null){
+
 
         // Bind data to views
         holder.nationalIdTextView.setText(farmer.getNationalID());
@@ -72,7 +75,7 @@ public class FarmerAdapter extends RecyclerView.Adapter<FarmerAdapter.FarmerView
 
         // Action icons click listeners
         holder.editIcon.setOnClickListener(v -> {
-          showEditPopup(holder.itemView, farmer);
+            showEditPopup(holder.itemView, farmer);
             // Add your edit logic here
         });
 
@@ -87,9 +90,11 @@ public class FarmerAdapter extends RecyclerView.Adapter<FarmerAdapter.FarmerView
         });
 
 
-
-
         holder.itemView.setOnClickListener(v -> showPopupWindow(holder.itemView, farmer));
+    }
+        else {
+            farmerList.clear();
+        }
     }
 
     @Override

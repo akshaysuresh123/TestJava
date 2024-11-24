@@ -30,7 +30,9 @@ public class FarmerListViewModel extends AndroidViewModel {
         farmerRepository.getAllFarmers(new FarmerRepository.Callback() {
             @Override
             public void onResult(List<Farmer> farmers) {
-                farmerlist.postValue(farmers);
+                if(farmers.size()>0){
+
+                farmerlist.postValue(farmers);}
             }
         });
     }
@@ -39,7 +41,8 @@ public class FarmerListViewModel extends AndroidViewModel {
         farmerRepository.getAllFarmersbyFilter(gender,new FarmerRepository.Callback() {
             @Override
             public void onResult(List<Farmer> farmers) {
-                farmerlist.postValue(farmers);
+                if(farmers.size()>0){
+                farmerlist.postValue(farmers);}
             }
         });
     }
@@ -51,7 +54,9 @@ public class FarmerListViewModel extends AndroidViewModel {
             @Override
             public void onResult(List<Farmer> farmers) {
 
-                farmerlist.postValue(farmers);
+                if(farmers.size()>0){
+
+                farmerlist.postValue(farmers);}
 
             }
         });

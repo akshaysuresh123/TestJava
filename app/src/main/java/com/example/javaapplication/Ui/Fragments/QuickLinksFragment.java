@@ -60,15 +60,7 @@ public class QuickLinksFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(QuickLinksViewModel.class);
         // Disable the back press
-        requireActivity().getOnBackPressedDispatcher().addCallback(
-                getViewLifecycleOwner(),
-                new OnBackPressedCallback(true) {
-                    @Override
-                    public void handleOnBackPressed() {
-                        // Do nothing or show a message if required
-                    }
-                }
-        );
+
 
 
 }}
